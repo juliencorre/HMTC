@@ -35,6 +35,11 @@
         margin: 10px 0px 0px 0px;
       }
       
+      .proposition
+      {
+        margin: 10px 0px 0px 0px;
+      }
+      
     </style>
   </head>
   
@@ -73,7 +78,7 @@
                 <h2>Propositions</h2>
                 <ul class="list-unstyled">
                    <li>
-                     <div class="clearfix">
+                     <div class="proposition clearfix">
                        <!--div id="badge" class="pull-left">
                          <span class="badge">1</span>
                        </div-->
@@ -121,7 +126,7 @@
 $( "#ajouter_id" ).click(function() {
           
           $num = $( "#propositions_id ul" ).length+1;
-          $texte = "<li><div class=\"clearfix\"><div class=\"pull-left\"><input class=\"form-control\" type=\"text\" name=\"proposition_x\" id=\"input_proposition_x\" placeholder=\"Proposition\"/> </div><div id=\"close_btn\" class=\"pull-left\"><button type=\"button\" class=\"close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div></div></li>";
+          $texte = "<li><div class=\"clearfix proposition\"><div class=\"pull-left\"><input class=\"form-control\" type=\"text\" name=\"proposition_x\" id=\"input_proposition_x\" placeholder=\"Proposition\"/> </div><div id=\"close_btn\" class=\"pull-left\"><button type=\"button\" class=\"close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div></div></li>";
       $( "#propositions_id ul" ).append( $texte  );
         });
         
