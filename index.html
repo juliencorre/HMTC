@@ -1,50 +1,73 @@
-<!DOCTYPE html>
+
 <html lang="en-fr">
   <head>
     <meta charset="UTF-8">
     <title>Hmtc by juliencorre</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
     <!-- Saisie -->
-    <section>
+    <div class="row center-block">
+      <div class="col-md-12 ">
         <form>
             <h1>Nouveau dilemme</h1>
             <!-- titre -->
-            <div>
-                <label for="input_titre">Titre</label>
-                <input type="text" name="titre" id="input_titre">
+            <div >
+                <!--label class="col-sm-2 control-label" for="input_titre">Titre</label-->
+              
+                  <input class="form-control" type="text" name="titre" id="input_titre" placeholder="Titre">
+             
             </div>
             <!-- dilemme -->
-            <div>
-                <label for="textarea_dilemme">Dilemme</label>
-                <textarea type="text" name="dilemme" id="textarea_titre"></textarea>
+            <div >
+                <!--label class="col-sm-2 control-label" for="textarea_dilemme">Dilemme</label-->
+               
+                  <textarea class="form-control" type="text" name="dilemme" id="textarea_titre" placeholder="Problematique" ></textarea>
+             
             </div>
             <!-- propositions -->
             <div id="propositions_id">
                 <h2>Propositions</h2>
-                <ul>
-                    <li>
-                        <div>
-                            <input type="text" name="proposition_1" id="input_proposition_1" value="proposition 1">
-                            <a class="supprimer_class" href="#">X</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <input type="text" name="proposition_2" id="input_proposition_2" value="proposition 2">
-                            <a class="supprimer_class" href="#">X</a>
-                        </div>
-                    </li>
+                <ul class="list-unstyled">
+                   <li>
+                     <div class="clearfix">
+                       <!--div id="badge" class="pull-left">
+                         <span class="badge">1</span>
+                       </div-->
+                       <div class="pull-left">
+                         <input class="form-control" type="text" name="proposition_x" id="input_proposition_x" placeholder="Proposition "/> 
+                       </div>
+                       <div id="close_btn" class="pull-left">
+                         <button type="button" class="close" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                         </button>
+                       </div>
+                     </div>
+                  </li>
                 </ul>
-                <a id="ajouter_id" href="#" >Ajouter</a>
+              <div class="clearfix">
+                <button id="ajouter_id" type="button" class="btn btn-link">Ajouter</button>
+              </div>
             </div>
             <!-- submit -->
             <div>
-                <input type="button" value="Envoyer">
+                <button class="btn btn-default" type="submit">Envoyer</button>
             </div>
         </form>
-    </section>
+      </div>
+    </div>
     
     <!-- Pied de page -->
     <footer>
@@ -53,23 +76,27 @@
     
     <!-- scripts -->
     <script src="http://code.jquery.com/jquery-git.js" ></script>
-    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
     <script >
         
-        $(document).ready(function(){
-       
-       
-
-    }); 
+                      
+ $(document).ready(function(){
         
-        $( "#ajouter_id" ).click(function() {
-           $( "#propositions_id ul" ).append( "<li><div><input type=\"text\" name=\"proposition_x\" id=\"input_proposition_x\" placeholder=\"saisir proposition \"> <a class=\"supprimer_class\" href=\"#\">X</a></div></li>" );
+            
+    }); 
+
+$( "#ajouter_id" ).click(function() {
+          
+          $num = $( "#propositions_id ul" ).length+1;
+          $texte = "<li><div class=\"clearfix\"><div class=\"pull-left\"><input class=\"form-control\" type=\"text\" name=\"proposition_x\" id=\"input_proposition_x\" placeholder=\"Proposition\"/> </div><div id=\"close_btn\" class=\"pull-left\"><button type=\"button\" class=\"close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div></div></li>";
+      $( "#propositions_id ul" ).append( $texte  );
         });
         
-        $('#propositions_id').on('click', 'a.supprimer_class', function(events){
+        $('#propositions_id').on('click', 'button.close', function(events){
            $(this).parent().parent().remove();
-        });                     
-
+        });  
         
     </script>
 </html>
